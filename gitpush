@@ -1,0 +1,4 @@
+git add -A
+git commit -m "Synchronise on - $(date +%c)"
+git push origin master
+
