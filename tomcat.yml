@@ -1,0 +1,9 @@
+---
+- name: Installing tomcat
+  hosts: test
+  tasks:
+   - name:
+     package: 
+       name: jave-11-openjdk-devel
+       state: present
+

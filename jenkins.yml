@@ -1,0 +1,34 @@
+---
+- name: This playbook will be used to install Jenkins
+  hosts: test
+  tasks:
+   - name: This module will install jenkins
+     yum_repository:
+       name: jenkins-Repo 
+       description: EPEL YUM repo
+       baseurl: http://pkg.jenkins.io/redhat-stable
+       gpgcheck: 0
+     tags:
+       - rep-add
+        
+   - name: This will install jenkins
+     yum:
+       name: jenkins*
+       state: present
+#       enabled: yes
+     tags:
+      - jenkins-install
+
+   - name: Java Installation
+     yum:
+       name: java
+       state: present 
+
+
+   - name: Start Jenkins service
+     service:
+       name: jenkins
+       state: restarted
+     tags:
+       - service
+
